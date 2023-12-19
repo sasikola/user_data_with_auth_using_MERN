@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const SignUp = require("../models/SignUpSchema");
 const router = express.Router();
+require("dotenv").config()
 
 
 
@@ -60,7 +61,7 @@ router.post("/signup", async (req, res) => {
       }
   
       // Generate a JWT token
-      const token = jwt.sign({ userId: user._id }, "your-secret-key", {
+      const token = jwt.sign({ userId: user._id }, "SasiKiran", {
         expiresIn: "1h", // Token expires in 1 hour
       });
   

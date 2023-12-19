@@ -6,6 +6,7 @@ const bcrypt = require("bcrypt");
 const SignUp = require("./models/SignUpSchema");
 const jwt = require("jsonwebtoken");
 const authRouter = require("./Router/authRouter");
+require("dotenv").config()
 
 const app = express();
 app.use(cors());
@@ -14,18 +15,16 @@ app.use(express.json());
 let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // regex for email
 let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/; // regex for password
 
-//connect to database
-
 mongoose
-  .connect(
-    "mongodb+srv://sasikola5:Sasikiran9010@cluster0.bjoek5y.mongodb.net/UserList?retryWrites=true&w=majority"
-  )
+  .connect("mongodb+srv://sasikola5:Sasikiran9010@cluster0.bjoek5y.mongodb.net/UserList?retryWrites=true&w=majority")
   .then(() => {
     console.log("Connected successfully");
   })
   .catch((err) => {
     console.error(`Error: ${err}`);
   });
+
+
 
 app.use("/api/auth", authRouter);
 
