@@ -27,7 +27,7 @@ function Signup() {
     e.preventDefault();
     try {
       await axios
-        .post("http://localhost:3001/api/auth/signup", formData)
+        .post("https://user-mern-api.vercel.app/api/auth/signup", formData)
         .then((res) => {
           console.log(res.data);
           navigate("/login")
