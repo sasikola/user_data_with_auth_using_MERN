@@ -13,7 +13,7 @@ function Dashboard() {
   const dispatch = useDispatch();
 
 
-
+axios.defaults.withCredentials = true;
   useEffect(() => {
     const fetchData = async () => {
       try {
