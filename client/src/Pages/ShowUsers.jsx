@@ -6,7 +6,6 @@ function ShowUsers() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    // Check if the user is logged in based on your authentication mechanism
     const token = localStorage.getItem("token");
     setIsLoggedIn(!!token);
   }, []);
