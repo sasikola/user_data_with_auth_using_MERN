@@ -5,7 +5,7 @@ const userModel = require("./models/User");
 const authRouter = require("./Router/authRouter");
 
 const app = express();
-<<<<<<< HEAD
+
 app.use(
   cors({
     origin: ["https://user-mern-client.vercel.app"],
