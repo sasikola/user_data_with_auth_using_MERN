@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { RxCrossCircled } from "react-icons/rx";
+import toast from "react-hot-toast";
 
 function NavigationBar() {
   const [navbar, setNavbar] = useState(false);
@@ -20,6 +21,7 @@ function NavigationBar() {
 
     // Update the authentication status
     setIsLoggedIn(false);
+    toast.success("Logged Successfully")
 
     navigate("/login"); 
   };
@@ -27,6 +29,8 @@ function NavigationBar() {
   const handleClick = () => {
     setNavbar(!navbar);
   };
+
+
 
   return (
     <nav className="w-full h-auto bg-slate-400 lg:px-9 md:px-10 sm:px-14 px-12 shadow-md sm:py-4">

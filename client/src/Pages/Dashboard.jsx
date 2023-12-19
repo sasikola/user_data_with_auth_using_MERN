@@ -6,13 +6,22 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { getUser } from "../Redux/userSlice";
 import ShowUsers from "./ShowUsers";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
   // const [users, setUsers] = useState([]);
   const users = useSelector((state) => state.users.users);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  useEffect(() => {
+    // Check if the user is logged in based on your authentication mechanism
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token);
+  }, []);
 
+  
 
   useEffect(() => {
     const fetchData = async () => {

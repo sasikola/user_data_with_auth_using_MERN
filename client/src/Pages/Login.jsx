@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -8,9 +8,16 @@ function Login() {
     email: "",
     password: "",
   });
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // const history = useHistory(); // Create a history object for navigation/
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if the user is logged in based on your authentication mechanism
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token);
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,7 +44,7 @@ function Login() {
       navigate("/");
       // history.push('/home'); // Adjust the route according to your application
     } catch (error) {
-      console.error("Login error:", error.response.data);
+      console.error("Login error:", error);
     }
   };
   return (
