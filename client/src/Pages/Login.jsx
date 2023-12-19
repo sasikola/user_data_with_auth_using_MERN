@@ -43,6 +43,7 @@ function Login() {
       // Show an alert and navigate to the home page on successful login
       toast.success("User logged in successfully!");
       navigate("/");
+      window.location.reload(false);
       // history.push('/home'); // Adjust the route according to your application
     } catch (error) {
       console.error("Login error:", error);
