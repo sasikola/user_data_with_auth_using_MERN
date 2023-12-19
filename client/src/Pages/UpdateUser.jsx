@@ -13,7 +13,7 @@ function UpdateUser() {
   const [age, setAge] = useState(user.age);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+axios.defaults.withCredentials = true;
   const handleUpdate = (e) => {
     e.preventDefault();
     axios
