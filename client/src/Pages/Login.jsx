@@ -37,7 +37,7 @@ function Login() {
       navigate("/");
       // history.push('/home'); // Adjust the route according to your application
     } catch (error) {
-      console.error("Login error:", error.response.data);
+      console.error("Login error:", error);
     }
   };
   return (
