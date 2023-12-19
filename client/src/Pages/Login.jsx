@@ -24,7 +24,7 @@ function Login() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3001/api/auth/signin",
+        "https://user-mern-api.vercel.app/api/auth/signin",
         loginData
       );
       console.log(response.data);
