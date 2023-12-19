@@ -11,6 +11,7 @@ function Login() {
 
   // const history = useHistory(); // Create a history object for navigation/
   const navigate = useNavigate();
+  axios.defaults.withCredentials = true;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
