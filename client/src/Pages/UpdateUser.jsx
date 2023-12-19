@@ -17,7 +17,7 @@ function UpdateUser() {
   const handleUpdate = (e) => {
     e.preventDefault();
     axios
-      .put("http://localhost:3001/update/" + id, { name, email, age })
+      .put("https://user-mern-api.vercel.app/update/" + id, { name, email, age })
       .then((res) => {
         console.log(res);
         dispatch(updatedUser({ id, name, email, age }));
