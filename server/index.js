@@ -8,7 +8,7 @@ const app = express();
 <<<<<<< HEAD
 app.use(
   cors({
-    origin: ["https://user-mern-client.vercel.app/"],
+    origin: ["https://user-mern-client.vercel.app"],
     methods: ["POST", "GET"],
     credentials: true,
   })
