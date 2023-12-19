@@ -22,6 +22,7 @@ function NavigationBar() {
     // Update the authentication status
     setIsLoggedIn(false);
     toast.success("Logged Successfully")
+    console.log("Logged in");
 
     navigate("/login"); 
   };
