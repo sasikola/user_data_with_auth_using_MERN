@@ -9,7 +9,7 @@ const DeleteUser = ({ userId }) => {
 
   const handleDelete = () => {
     axios
-      .delete(`http://localhost:3001/deleteUser/${userId}`)
+      .delete(`https://user-mern-api.vercel.app/deleteUser/${userId}`)
       .then((res) => {
         console.log(res);
         dispatch(deleteUser({ id: userId }));
