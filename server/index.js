@@ -7,13 +7,8 @@ const SignUp = require("./models/SignUpSchema");
 const jwt = require("jsonwebtoken");
 const authRouter = require("./Router/authRouter");
 
-
 const app = express();
-app.use(cors({
-  origin: ["https://deploy-mern-1whq.vercel.app"],
-  methods: ["POST", "GET"],
-  credentials: true
-}));
+app.use(cors());
 app.use(express.json());
 
 let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // regex for email
@@ -22,7 +17,9 @@ let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/; // regex for pass
 //connect to database
 
 mongoose
-  .connect("mongodb+srv://sasikola5:Sasikiran9010@cluster0.bjoek5y.mongodb.net/UserList?retryWrites=true&w=majority")
+  .connect(
+    "mongodb+srv://sasikola5:Sasikiran9010@cluster0.bjoek5y.mongodb.net/UserList?retryWrites=true&w=majority"
+  )
   .then(() => {
     console.log("Connected successfully");
   })
