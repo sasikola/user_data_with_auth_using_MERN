@@ -15,7 +15,7 @@ function Signup() {
     city: "",
     state: "",
   });
-
+axios.defaults.withCredentials = true;
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prevData) => {
