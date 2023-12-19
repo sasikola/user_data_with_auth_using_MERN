@@ -27,7 +27,7 @@ export default function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/user" element={isLoggedIn ? <User /> ? <CreateUser/> :<Login/> : <Login/>} />
+          <Route path="/user" element={!isLoggedIn ? <Login/> :<User/>} />
           <Route path="/create" element={isLoggedIn ? <CreateUser /> : <Login/>} />
           <Route path="/edit/:id" element={<UpdateUser />} />
         </Routes>
