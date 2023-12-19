@@ -11,11 +11,12 @@ import DeleteUser from "./DeleteUser";
 function User() {
   const users = useSelector((state) => state.users.users);
   const dispatch = useDispatch();
+  axios.defaults.withCredentials = true;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/getData");
+        const response = await axios.get("https://user-mern-api.vercel.app/getData");
         dispatch(getUser(response.data));
       } catch (err) {
         console.log(err);

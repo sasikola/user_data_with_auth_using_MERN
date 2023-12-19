@@ -15,10 +15,11 @@ function CreateUser() {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  axios.defaults.withCredentials = true;
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/create", { name, email, age })
+      .post("https://user-mern-api.vercel.app/create", { name, email, age })
       .then((res) => {
         dispatch(addUser(res.data));
         toast.success(`${name} is added!`);

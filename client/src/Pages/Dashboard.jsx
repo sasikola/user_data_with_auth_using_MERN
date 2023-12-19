@@ -21,12 +21,16 @@ function Dashboard() {
     setIsLoggedIn(!!token);
   }, []);
 
+<<<<<<< HEAD
   
 
+=======
+axios.defaults.withCredentials = true;
+>>>>>>> 7d40c80e3f227949387ad3d751d185d34d924d52
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/getData");
+        const response = await axios.get("https://user-mern-api.vercel.app/getData");
         dispatch(getUser(response.data));
       } catch (err) {
         console.log(err);

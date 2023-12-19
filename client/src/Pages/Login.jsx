@@ -12,6 +12,7 @@ function Login() {
 
   // const history = useHistory(); // Create a history object for navigation/
   const navigate = useNavigate();
+  axios.defaults.withCredentials = true;
 
   useEffect(() => {
     // Check if the user is logged in based on your authentication mechanism
@@ -31,7 +32,7 @@ function Login() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3001/api/auth/signin",
+        "https://user-mern-api.vercel.app/api/auth/signin",
         loginData
       );
       console.log(response.data);
