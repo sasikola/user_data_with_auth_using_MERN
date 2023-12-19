@@ -4,21 +4,26 @@ const cors = require("cors");
 const userModel = require("./models/User");
 const authRouter = require("./Router/authRouter");
 
-
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://deploy-mern-1whq.vercel.app"],
+    methods: ["POST", "GET"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 mongoose
-  .connect("mongodb+srv://sasikola5:Sasikiran9010@cluster0.bjoek5y.mongodb.net/UserList?retryWrites=true&w=majority")
+  .connect(
+    "mongodb+srv://sasikola5:Sasikiran9010@cluster0.bjoek5y.mongodb.net/UserList?retryWrites=true&w=majority"
+  )
   .then(() => {
     console.log("Connected successfully");
   })
   .catch((err) => {
     console.error(`Error: ${err}`);
   });
-
-
 
 app.use("/api/auth", authRouter);
 
