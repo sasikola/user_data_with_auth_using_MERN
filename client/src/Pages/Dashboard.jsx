@@ -12,15 +12,7 @@ function Dashboard() {
   const users = useSelector((state) => state.users.users);
   const dispatch = useDispatch();
 
-  const addNewUser = () => {
-    const newUser = {
-      username: `User ${users.length + 1}`,
-      email: `user${users.length + 1}@example.com`,
-      phone: `123-456-${users.length + 1}`,
-    };
 
-    // setUsers([...users, newUser]);
-  };
 
   useEffect(() => {
     const fetchData = async () => {

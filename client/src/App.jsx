@@ -6,9 +6,17 @@ import UpdateUser from "./Pages/UpdateUser";
 import Signup from "./Pages/Signup";
 import Login from "./Pages/Login";
 import Dashboard from "./Pages/Dashboard";
+import { useEffect, useState } from "react";
 
 
 export default function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // Check if the user is logged in based on your authentication mechanism
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token);
+  }, []);
  
  
   return (
@@ -19,8 +27,8 @@ export default function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/user" element={<User />} />
-          <Route path="/create" element={<CreateUser />} />
+          <Route path="/user" element={isLoggedIn ? <User /> : <Login/>} />
+          <Route path="/create" element={isLoggedIn ? <CreateUser /> : <Login/>} />
           <Route path="/edit/:id" element={<UpdateUser />} />
         </Routes>
       </Router>

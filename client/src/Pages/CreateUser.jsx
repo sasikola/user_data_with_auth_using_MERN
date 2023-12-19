@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../Redux/userSlice";
@@ -13,6 +13,7 @@ function CreateUser() {
   const [age, setAge] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,6 +25,12 @@ function CreateUser() {
         navigate("/");
       });
   };
+
+  useEffect(() => {
+    // Check if the user is logged in based on your authentication mechanism
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token);
+  }, []);
 
  
   return (
