@@ -13,13 +13,7 @@ app.use(
     credentials: true,
   })
 );
-=======
-app.use(cors({
-   origin:["https://deploy-mern-1whq.vercel.app"],
-  methods:["POST", "GET"],
-  credentials:true
-}));
->>>>>>> 370cc8ad82f1c35b85fd1f3a309e55d59b6ea1ed
+
 app.use(express.json());
 
 mongoose
