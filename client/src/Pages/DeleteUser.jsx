@@ -6,7 +6,7 @@ import { deleteUser } from "../Redux/userSlice";
 
 const DeleteUser = ({ userId }) => {
   const dispatch = useDispatch();
-
+axios.defaults.withCredentials = true;
   const handleDelete = () => {
     axios
       .delete(`https://user-mern-api.vercel.app/deleteUser/${userId}`)
