@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt");
 const SignUp = require("./models/SignUpSchema");
 const jwt = require("jsonwebtoken");
 const authRouter = require("./Router/authRouter");
-require("dotenv").config()
+
 
 const app = express();
 app.use(cors());
